@@ -46,9 +46,16 @@
         ">Reset Cart</button>
 
         <script>
-            const product = {
+            const product1 = {
                 name: 'basketball',
-                price: 2095
+                price: 2095,
+                'delivery-time': '3 days'
+            };
+
+            const product2 = {
+                name: 'baseball',
+                price: 1500,
+                'delivery-time': '2 days'
             };
 
             let cartQuantity = 0;
@@ -60,9 +67,37 @@
                     alert('Not enough items in the cart.')
                 }else{
                     cartQuantity += change;
-                    console.log(`Cart quanitity; ${cartQuantity}`);
+                    console.log(`Cart Quantity: ${cartQuantity}`);
                 }
             }
+            function comparePrice(product1, product2){
+                if(product1 < product2){
+                    return product1;
+                }else if(product1 > product2){
+                    return product2;
+                }else{
+                    return 'same price';
+                }
+            }
+            function isSameProduct(product1, product2){
+                if(product1 === product2){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            
+            // Test the functions
+            product1.price += 500;
+            console.log(product1);
+            
+            // Step 8c: Add delivery-time using bracket notation
+            product1['delivery-time'] = '3 days';
+            console.log(product1);
+            
+            console.log(comparePrice(product1.price, product2.price));
+            console.log(isSameProduct(product1.name, product2.name));
+            console.log(isSameProduct(product1.price, product2.price));
             
         </script>
     </body>
