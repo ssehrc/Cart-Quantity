@@ -5,7 +5,7 @@
     </head>
     <body>
         <button onclick="
-         console.log(`Cart Quantity: ${cartQuantity}`);
+         displayCartQuantity();
         ">Show Quantity</button>
 
         <button onclick="
@@ -45,6 +45,8 @@
         console.log(`Cart was reset!`);
         ">Reset Cart</button>
 
+        <p class="js-quantity"></p>
+
         <script>
             const product1 = {
                 name: 'basketball',
@@ -69,6 +71,10 @@
                     cartQuantity += change;
                     console.log(`Cart Quantity: ${cartQuantity}`);
                 }
+                displayCartQuantity();
+            }
+            function displayCartQuantity(){
+                document.querySelector('.js-quantity').innerHTML = `Cart Quantity: ${cartQuantity}`;
             }
             function comparePrice(product1, product2){
                 if(product1 < product2){
